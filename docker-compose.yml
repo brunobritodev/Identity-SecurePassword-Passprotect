@@ -1,0 +1,28 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+
+  secure-password-demo:
+      image: "secure-password-demo"
+      build: 
+        context: .
+        dockerfile: ./SecurePassword/Dockerfile
+      ports:
+          - "5000:5000"
+      links:
+          - mssqldemo
+      depends_on:
+          - mssqldemo
+      environment: 
+          CUSTOMCONNSTR_DefaultConnection: "Server=mssqldemo;Initial Catalog=Passprotect;Persist Security Info=False;User ID=sa;Password=@Password1;MultipleActiveResultSets=False;Connection Timeout=30;"
+          DATABASENAME: "Products"
+          ASPNETCORE_ENVIRONMENT: "Development"
+          ASPNETCORE_URLS: http://+:5000
+  mssqldemo:
+    image: "mcr.microsoft.com/mssql/server"
+    environment:
+      SA_PASSWORD: "@Password1"
+      ACCEPT_EULA: "Y"
+
+  
