@@ -8,7 +8,7 @@ Example App - This demo shows how to use [passprotect.js](https://www.passprotec
 
 Pre reqs
 
-* Net.Core 2.2
+* Net.Core 3.1
 
 Techs:
 
