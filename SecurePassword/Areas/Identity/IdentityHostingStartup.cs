@@ -7,14 +7,15 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SecurePassword.Data;
 
-[assembly: HostingStartup(typeof(SecurePassword.Areas.Identity.IdentityHostingStartup))]
-namespace SecurePassword.Areas.Identity
+[assembly: HostingStartup(typeof(WebApplication6.Areas.Identity.IdentityHostingStartup))]
+namespace WebApplication6.Areas.Identity
 {
     public class IdentityHostingStartup : IHostingStartup
     {
         public void Configure(IWebHostBuilder builder)
         {
-            builder.ConfigureServices((context, services) => {
+            builder.ConfigureServices((context, services) =>
+            {
             });
         }
     }
